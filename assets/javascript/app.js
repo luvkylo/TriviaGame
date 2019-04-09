@@ -1,26 +1,50 @@
 var ques = [{
-	question: "question 1",
-	answers: ["1", "2", "3", "4"],
-	correct: "3",
-	img: ""
+	question: "What was the first full length CGI movie?",
+	answers: ["A Bug's Life", "Monsters Inc.", "Toy Story", "The Lion King"],
+	correct: "Toy Story",
+	img: "https://media.giphy.com/media/RpfIXomvjCh8I/giphy.gif"
 },
 {
-	question: "question 2",
-	answers: ["5", "6", "7", "8"],
-	correct: "5",
-	img: ""
+	question: "Which of these is NOT the name of one of the Spice Girls?",
+	answers: ["Sporty Spice", "Fred Spice", "Scary Spice", "Posh Spice"],
+	correct: "Fred Spice",
+	img: "https://media.giphy.com/media/H1OSue2baILkc/giphy.gif"
 },
 {
-	question: "question 3",
-	answers: ["9", "10", "11", "12"],
-	correct: "12",
-	img: ""
+	question: "Which NBA team won the most titles in the 90s?",
+	answers: ["New York Knicks", "Portland Trailblazers", "Los Angeles Lakers", "Chicago Bulls"],
+	correct: "Chicago Bulls",
+	img: "https://media.giphy.com/media/2k8EwXEwhoQGQ/giphy.gif"
 },
 {
-	question: "question 4",
-	answers: ["13", "14", "15", "16"],
-	correct: "14",
-	img: ""
+	question: 'Which group release the hit song, "Smells Like Teen Spirit"?',
+	answers: ["Nirvana", "Backstreet Boys", "The Offspring", "No Doubt"],
+	correct: "Nirvana",
+	img: "https://media.giphy.com/media/YQij8l6rgEP3q/giphy.gif"
+},
+{
+	question: 'Which popular Disney movie feature the song, "Circle of Life"?',
+	answers: ["Aladdin", "Hercules", "Mulan", "The Lion King"],
+	correct: "The Lion King",
+	img: "https://media.giphy.com/media/Ms2YW90Qnyv4I/giphy.gif"
+},
+{
+	question: 'Finish the line from the Fresh Prince of Bel-Air theme song: "I whistled for a cab and when it came near, the license plate said..."',
+	answers: ["Dice", "Mirror", "Fresh", "Cab"],
+	correct: "Fresh",
+	img: "https://media.giphy.com/media/l0IsHKNIOuBPJ4aCk/giphy.gif"
+},
+{
+	question: "What is Doug's best friend's name?",
+	answers: ["Skeeter", "Mark", "Zach", "Cody"],
+	correct: "Skeeter",
+	img: "https://media.giphy.com/media/fz7CBkfGrGxzy/giphy.gif"
+},
+{
+	question: "What is the name of the principal at Bayside High in Saved By The Bell?",
+	answers: ["Mr.Zhou", "Mr.Driggers", "Mr.Belding", "Mr.Page"],
+	correct: "Mr.Belding",
+	img: "https://media.giphy.com/media/GfFtwdmbz4vAs/giphy.gif"
 }];
 var quesIndex = 0;
 var timer = 30;
@@ -29,14 +53,14 @@ var intervalId = "";
 var correct = 0;
 var wrong = 0;
 var unanswered = 0;
-var openRow = "<div class='row align-items-center'><div class='col text-center'>";
+var openRow = "<div class='row align-items-center mx-0'><div class='col text-center'>";
 var closeRow = "</div></div>";
 
 $(document).ready(function() {
 
 	// class mainContent append start button
 		// class btn btn-secondary btn-lg
-	$(".mainContent").append("<div class='row align-items-center startRow'><div class='col text-center'><button class='btn btn-secondary btn-lg start'>Start</button></div></div>");
+	$(".mainContent").append("<div class='row align-items-center mx-0 startRow'><div class='col text-center'><button class='btn btn-secondary btn-lg start'>Start</button></div></div>");
 
 	// function of displaying question and answer
 	// question()
@@ -53,7 +77,7 @@ $(document).ready(function() {
 			// 		- for loop
 			//		- use button (class btn btn-secondary btn-lg answer) 
 		for (var i = 0; i < 4; i++) {
-			$(".trivia").append(openRow + "<button class='btn btn-secondary btn-lg answers'>" + answer[i] + "</button>" + closeRow);
+			$(".trivia").append(openRow + "<button class='btn btn-secondary btn-lg answers mb-2'>" + answer[i] + "</button>" + closeRow);
 		}
 
 		// result = correct answer
@@ -108,7 +132,7 @@ $(document).ready(function() {
 			$(".trivia").append(openRow + "<p class='h4'>Correct!</p>" + closeRow);
 		}
 		// append <img> src = ques[quesIndex].img
-		$(".trivia").append(openRow + "<img src=" + ques[quesIndex].img + ">" + closeRow);
+		$(".trivia").append(openRow + "<img class='mb-4' src=" + ques[quesIndex].img + ">" + closeRow);
 
 		quesIndex++;
 		// setTimeout(function() {}, 4000);
@@ -144,7 +168,7 @@ $(document).ready(function() {
 				// append <button> (class btn btn-secondary btn-lg restart) Start Over?
 				$(".trivia").append(openRow + "<button class='btn btn-secondary btn-lg restart'>Start Over?</button>" + closeRow);
 			}
-		}, 4000);
+		}, 3000);
 	}
 
 	// when start button is pressed
